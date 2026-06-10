@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #123A78;
+  --color-secondary: #21B6BE;
+  --color-surface: #F5F7FA;
+  --color-text-main: #1F2937;
+  --color-text-muted: #6B7280;
+  
+  --color-success: #16A34A;
+  --color-error: #DC2626;
+  --color-warning: #F59E0B;
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  --radius-card: 20px;
+  --radius-button: 14px;
+
+  --shadow-premium: 0 4px 20px -2px rgba(18, 58, 120, 0.04), 0 2px 8px -1px rgba(18, 58, 120, 0.02);
+  --shadow-premium-hover: 0 20px 40px -4px rgba(18, 58, 120, 0.08), 0 8px 16px -2px rgba(18, 58, 120, 0.04);
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #1F2937;
+  --primary: #123A78;
+  --secondary: #21B6BE;
+}
+
+/* Base resets & global styling */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Accessibility Focus States - Custom focus indicator */
+*:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 3px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom premium elements */
+.gradient-bg {
+  background: radial-gradient(circle at 10% 20%, rgba(33, 182, 190, 0.05) 0%, rgba(18, 58, 120, 0.03) 90%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #123A78 0%, #21B6BE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

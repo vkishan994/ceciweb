@@ -41,13 +41,13 @@ export const Header: React.FC = () => {
         {/* Brand Logo */}
         <a
           href="#"
-          className="flex items-center gap-3 text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-lg p-1"
+          className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-lg p-1"
           aria-label="Céciweb Formation - Accueil"
         >
           <div className="bg-primary text-white p-2 rounded-xl">
             <Landmark className="w-6 h-6" />
           </div>
-          <span className="font-extrabold text-xl md:text-2xl tracking-tight uppercase">
+          <span className={`${isScrolled ? "text-primary ": "text-white"} font-extrabold text-xl md:text-2xl tracking-tight uppercase`}>
             Céciweb <span className="text-secondary font-medium lowercase">Formation</span>
           </span>
         </a>
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-text-main font-medium hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded px-2 py-1 transition-colors duration-200"
+              className={`${isScrolled ? 'text-text-main': 'text-white'} font-medium hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded px-2 py-1 transition-colors duration-200`}
             >
               {link.label}
             </a>
@@ -69,7 +69,7 @@ export const Header: React.FC = () => {
               const contactSection = document.getElementById("contact");
               if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
             }}
-            className="h-[44px] px-6 text-sm font-bold border-[2px]"
+            className={`${isScrolled ? "" : "border-white text-white" } h-[44px] px-6 text-sm font-bold border-[2px]`}
           >
             Nous Contacter
           </Button>
@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-primary hover:text-secondary rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 cursor-pointer"
+          className={`${isScrolled ? "text-primary ": "text-white"} md:hidden p-2 hover:text-secondary rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 cursor-pointer`}
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
           aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
